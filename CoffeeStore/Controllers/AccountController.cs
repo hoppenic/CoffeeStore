@@ -71,6 +71,13 @@ namespace CoffeeStore.Controllers
 
         }
 
+
+        //get
+        public IActionResult Signin()
+        {
+            return View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult SignIn(SignInViewModel model)
