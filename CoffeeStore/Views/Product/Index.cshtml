@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Drink Bold Coffee at Nick's Bold Coffee Haus</h2>
+
+<div class="container-fluid">
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-sm-12 col-md-4">
+                <h3>@product.Name</h3>
+                <img class="img-fluid" src="@product.Image" alt="@product.Name" />
+                <h3> @product.Price.Value.ToString("C")</h3>
+                <a class="btn btn-primary" asp-controller="Product" asp-action="Details" asp-route-id="@product.ID"> View This Product</a>
+                <form method="post" asp-action="Details">
+                    <input name="ID" value="@product.ID" type="hidden" />
+                    <input type="submit" class="btn btn-primary" value="Add to Cart" />
+                </form>
+            </div>
+        }
+    </div>
+
+
+
+</div>

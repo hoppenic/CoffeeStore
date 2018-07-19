@@ -21,7 +21,7 @@ namespace CoffeeStore.Controllers
             {
                 ID = 1,
                 Name = "Black Coffee",
-                Description = "Bold Venezuelan Blend",
+                Description = "Bold Peruvian and Burundi Blend",
                 Image = "",
                 Price = 2.99m
 
@@ -29,12 +29,21 @@ namespace CoffeeStore.Controllers
 
             _products.Add(new Product
             {
-                ID = 1,
+                ID = 2,
                 Name = "Cafe Latte",
                 Description = "Our Smooth Colombian Blend with whole milk",
                 Image = "",
                 Price = 4.99m
 
+            });
+
+            _products.Add(new Product
+            {
+                ID = 3,
+                Name = "Americano",
+                Description = "Espresso & Hot Water",
+                Image = "",
+                Price = 3.99m
             });
 
 
@@ -50,9 +59,11 @@ namespace CoffeeStore.Controllers
             }
             return NotFound();
         }
+
+
         public IActionResult Index()
         {
-            return View();
+            return View(_products);
         }
     }
 }
