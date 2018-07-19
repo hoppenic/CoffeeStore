@@ -26,10 +26,14 @@ namespace CoffeeStore.Controllers
         //Responds on post Account/Register
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Register(string username, string password)
+        public IActionResult Register(Models.RegisterViewModel model)
         {
-            return Ok();
-
+            if (ModelState.IsValid)
+            {
+                //TODO create account and log user in
+                return RedirectToAction("Index", "Home");
+            }
+            return View();
 
         }
 
